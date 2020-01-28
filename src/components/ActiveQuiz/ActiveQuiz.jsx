@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ActiveQuiz.module.scss';
 import AnswersList from './AnswersList/AnswersList';
 
-let ActiveQuiz = (props) => {
+let ActiveQuiz = (props) => {    
     return (
         <div className={classes.ActiveQuiz}>
             <p>
