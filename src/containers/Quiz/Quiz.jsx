@@ -8,15 +8,6 @@ import { fetchQuizById, quizAnswerClick, onRepeatButtonHandler } from '../../sto
 
 class Quiz extends Component {
 
-    // onRepeatButtonHandler = () => {
-    //     this.setState({
-    //         results: {},
-    //         activeQuestion: 0,
-    //         isFinished: false,
-    //         answerState: null,
-    //     })
-    // }
-
     componentDidMount() {
         this.props.fetchQuizById(this.props.match.params.id)
     }

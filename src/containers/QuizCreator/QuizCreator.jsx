@@ -6,6 +6,8 @@ import Input from '../../components/UI/input/input';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Select from '../../components/UI/Select/Select';
 import axios from '../../axios/axios-quiz';
+import { connect } from 'react-redux';
+import { createQuizQuestion, finishCreateQuiz } from '../../store/actions/create';
 
 function createOptionControl(number) {
     return createControl({
@@ -81,7 +83,7 @@ class QuizCreator extends Component {
                 rightAnswer: 1,
                 formControls: createFormControls(),
             })
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     }
@@ -178,4 +180,17 @@ class QuizCreator extends Component {
     }
 }
 
-export default QuizCreator;
+function mapStateToProps(state) {
+    return {
+        quiz: state.create.quiz
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        createQuizQuestion: item => dispatch(createQuizQuestion(item)),
+        finishCreateQuiz: () => dispatch(finishCreateQuiz())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuizCreator);
